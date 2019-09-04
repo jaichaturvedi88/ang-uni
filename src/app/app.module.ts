@@ -8,6 +8,12 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { firebaseConfig } from './keys/firebase-config';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +22,11 @@ import { AboutComponent } from './about/about.component';
     AboutComponent,
   ],
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     AppRoutingModule,
