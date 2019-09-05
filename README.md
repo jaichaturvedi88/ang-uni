@@ -33,6 +33,27 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 > npm run build:ssr && npm run serve:ssr
 - To start rendering your app with Universal on your local system
 
-## 02-firebase-integration - **Work in progress**
+## 02-firebase-integration - **Intergrated but not deployed**
 > npm install firebase @angular/fire
-- THis will install firebase in pfroject
+- This will install firebase in pfroject
+
+After above step 
+> **npm run build:ssr** --> will the project
+
+> **npm run serve:ssr** --> this will give some wierd issue
+
+<br>
+
+To fix the above issue change **--bundleDependencies all** to **--bundleDependencies none** in package.json as show below
+
+```
+"build:client-and-server-bundles": "ng build --prod && ng run ang-uni:server:production --bundleDependencies all"
+```  
+```
+"build:client-and-server-bundles": "ng build --prod && ng run ang-uni:server:production --bundleDependencies none"
+```
+
+Now if we try to run the app, it should work in local using below command 
+**npm run serve:ssr** 
+
+
