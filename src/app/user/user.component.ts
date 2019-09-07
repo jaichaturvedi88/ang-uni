@@ -32,4 +32,8 @@ export class UserComponent implements OnInit {
     // this.router.navigateByUrl('/users/',)
   }
 
+  gotoAbout(){
+    this.router.navigateByUrl('/about',)
+  }
+
 }
